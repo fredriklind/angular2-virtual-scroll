@@ -211,7 +211,7 @@ var VirtualScrollComponent = (function () {
         var elScrollTop = this.parentScroll instanceof Window
             ? (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0)
             : el.scrollTop;
-        if (elScrollTop > d.scrollHeight) {
+        if (elScrollTop > d.scrollHeight && !(this.parentScroll instanceof Window)) {
             elScrollTop = d.scrollHeight + offsetTop;
         }
         var scrollTop = Math.max(0, elScrollTop - offsetTop);

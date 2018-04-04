@@ -327,7 +327,7 @@ export class VirtualScrollComponent implements OnInit, OnChanges, OnDestroy {
       ? (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0)
       : el.scrollTop;
 
-    if (elScrollTop > d.scrollHeight) {
+    if (elScrollTop > d.scrollHeight && !(this.parentScroll instanceof Window)) {
       elScrollTop = d.scrollHeight + offsetTop;
     }
 
